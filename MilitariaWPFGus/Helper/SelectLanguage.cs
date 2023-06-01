@@ -8,6 +8,7 @@ namespace MilitariaWPFGus.Helper
 {
     public static class SelectLanguage
     {
+        public static string Current { get; set; } = PL;
         public static string PL { get => "pl"; }
         public static string EN { get => "en"; }
     }

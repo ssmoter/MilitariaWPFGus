@@ -20,7 +20,26 @@
     </UserControl.Resources>
 
     <Grid>
-        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding GusMs}" VirtualizingPanel.IsVirtualizing="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MaxWidth="1000" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Button
+            Grid.Column="1"
+            MinWidth="50"
+            HorizontalAlignment="Left"
+            Command="{Binding ChangeLanguage}"
+            Content="{Binding SelectedLanguage}" />
+        <DataGrid
+            Grid.Column="0"
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding GusMs}"
+            VirtualizingPanel.IsVirtualizing="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="Id" />
                 <DataGridTextColumn Binding="{Binding Nazwa}" Header="Nazwa" />
@@ -29,7 +48,9 @@
                 <DataGridTextColumn Binding="{Binding NazwaPoziom}" Header="Nazwa poziomu" />
                 <DataGridCheckBoxColumn Binding="{Binding CzyZmienne}" Header="Czy zmienne" />
             </DataGrid.Columns>
-
         </DataGrid>
+        <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" >
+            <Label Content="{Binding Error}" Foreground="Red"/>
+        </ScrollViewer>
     </Grid>
 </UserControl>
