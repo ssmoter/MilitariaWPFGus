@@ -9,9 +9,9 @@
     d:DesignWidth="1000"
     mc:Ignorable="d">
 
-    <UserControl.DataContext>
+    <!--<UserControl.DataContext>
         <local:GusVM />
-    </UserControl.DataContext>
+    </UserControl.DataContext>-->
 
     <UserControl.Resources>
         <Style TargetType="DataGridRow">
